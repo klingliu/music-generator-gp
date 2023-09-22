@@ -2,8 +2,8 @@
   (:require [quil.core :as q :include-macros true]
             [quil.middleware :as m]
             [insane-noises.core :as core]
-    ;[overtone.live :as o]
-    ;[overtone.inst.piano]
+            ;[overtone.live :as o]
+            ;[overtone.inst.piano]
             ))
 
 (require '[dynne.sampled-sound :as d])
@@ -29,8 +29,7 @@
 
 
 ; count-occurrences function was copied from
-; https://stackoverflow.com/questions/25614540/clojure-
-; how-to-count-occurrences-in-a-list/25616080#25616080
+; https://stackoverflow.com/questions/25614540/clojure-how-to-count-occurrences-in-a-list/25616080#25616080
 (defn count-occurrences [obj vec]
   (->> vec
        (filter #{obj})
