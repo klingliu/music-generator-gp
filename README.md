@@ -22,7 +22,13 @@ The variation method is a combination of mutation and crossover. The mutation is
 
 The selection method is lexicase selection, and our error function tests for genome length on a hyperbolic shape so that genome lengths will be penalized dramatically if they are shorter than or closer to 30. This way, the error will never be zero, which is why our system always runs through the max number of generations.
 
-![](https://lh4.googleusercontent.com/EyO2Ve_M6sh3DrnmRJWX6ykAkjfN_C0xqtveuL4qWacnwQ6UasMo6SJvL3z3tit5F4PXU3VRiYgEp9uUiLfHmOSdrMpbvZjq5qHXhDeV9JanFTaDX8nx_TF05vikk7QNBk_vizRFnYTTs7V_nr9Mbw)
+```
+# Lexicase selection
+(if (or (<= (count genome) 30)
+        (> (count genome) 100))
+  10000000
+  (/ 10000.0 (- (count genome) 30)))
+```
 
 The other characteristic our error function tests for is the note intervals, penalizing tritones, octave jumps, and intervals over a fifth a certain percentage of the time and leaving them unpenalized the rest of the time. The reason we decided to penalize these intervals is because we wanted to abide by classical music conventions as an initial basis for achieving "pleasing" sounds since there is no other clear set of rules we could implement in code without going way beyond the scope of a single month. In order to avoid a boring, strict adherence to these rules, we implemented them so that these rules are not penalized all the time in order to allow for some intrigue.
 
